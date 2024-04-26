@@ -23,11 +23,22 @@ topMenuEl.setAttribute('class','flex-around');
  //!Part 3: Adding Menu Buttons:
 
  // Menu data structure
-const menuLinks = [
-  { text: 'about', href: '/about' },
-  { text: 'catalog', href: '/catalog' },
-  { text: 'orders', href: '/orders' },
-  { text: 'account', href: '/account' },
+ var menuLinks = [
+  {text: 'about', href: '/about'},
+  {text: 'catalog', href: '#', subLinks: [
+    {text: 'all', href: '/catalog/all'},
+    {text: 'top selling', href: '/catalog/top'},
+    {text: 'search', href: '/catalog/search'},
+  ]},
+  {text: 'orders', href: '#' , subLinks: [
+    {text: 'new', href: '/orders/new'},
+    {text: 'pending', href: '/orders/pending'},
+    {text: 'history', href: '/orders/history'},
+  ]},
+  {text: 'account', href: '#', subLinks: [
+    {text: 'profile', href: '/account/profile'},
+    {text: 'sign out', href: '/account/signout'},
+  ]},
 ];
 
 menuLinks.forEach(link => {
@@ -36,3 +47,16 @@ menuLinks.forEach(link => {
   a.textContent = link.text;
   topMenuEl.appendChild(a);
 })
+
+//!Dom Manipulation P2: Part 3: Creating the Submenu:
+const subMenuEl = document.getElementById('sub-menu');
+subMenuEl.style.height= '100%';
+subMenuEl.style.backgroundColor= `var(--sub-menu-bg)`;
+subMenuEl.setAttribute('class', 'flex-around');
+subMenuEl.style.position = 'absolute';
+document.getElementById('sub-menu').style.top = "0";
+
+//! Part 4: Adding Menu Interaction:
+
+const topMenuLinks = document.querySelector(a);
+document.topMenuLinks.addEventListener("click",)
